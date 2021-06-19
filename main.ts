@@ -22,17 +22,22 @@ namespace mASR{
             while (true) {
                 const readData = serial.readBuffer(1).toArray(NumberFormat.UInt8BE);
                 if (225==readData[0]) {
-                    lastvoc = vocabularyList.VOICE_225
+                    lastvoc = vocabularyList.VOICE_225;
+                    control.raiseEvent(asrEventId, lastvoc);
                 }else if(226==readData[0]){
-                    lastvoc = vocabularyList.VOICE_226
+                    lastvoc = vocabularyList.VOICE_226;
+                    control.raiseEvent(asrEventId, lastvoc);
+
                 }else if(227==readData[0]){
-                    lastvoc = vocabularyList.VOICE_227
+                    lastvoc = vocabularyList.VOICE_227;
+                    control.raiseEvent(asrEventId, lastvoc);
                 }else if(228==readData[0]){
-                    lastvoc = vocabularyList.VOICE_228
+                    lastvoc = vocabularyList.VOICE_228;
+                    control.raiseEvent(asrEventId, lastvoc);
                 }else if(229==readData[0]){
-                    lastvoc = vocabularyList.VOICE_229
+                    lastvoc = vocabularyList.VOICE_229;
+                    control.raiseEvent(asrEventId, lastvoc);
                 }
-                control.raiseEvent(asrEventId, lastvoc);
                 basic.pause(100);
             }
         })
