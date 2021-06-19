@@ -19,7 +19,10 @@ namespace mASR{
     export function  ASR(vocabulary:vocabularyList,handler:() => void ){
         control.onEvent(asrEventId,vocabulary,handler)
         control.inBackground(function () {
+                        while (true) {
+
             const readData = serial.readBuffer(1).toArray(NumberFormat.UInt8BE);
+            basic.showNumber(readData[0])
             if (225==readData[0]) {
                 lastvoc = vocabularyList.VOICE_225
             }else if(226==readData[0]){
@@ -33,6 +36,7 @@ namespace mASR{
             }
             control.raiseEvent(asrEventId, lastvoc);
             basic.pause(100);
+            }
         })
 
     }
