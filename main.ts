@@ -19,23 +19,21 @@ namespace mASR{
     export function  ASR(vocabulary:vocabularyList,handler:() => void ){
         control.onEvent(asrEventId,vocabulary,handler)
         control.inBackground(function () {
-                        while (true) {
-
-            const readData = serial.readBuffer(1).toArray(NumberFormat.UInt8BE);
-            basic.showNumber(readData[0])
-            if (225==readData[0]) {
-                lastvoc = vocabularyList.VOICE_225
-            }else if(226==readData[0]){
-                lastvoc = vocabularyList.VOICE_226
-            }else if(227==readData[0]){
-                lastvoc = vocabularyList.VOICE_227
-            }else if(228==readData[0]){
-                lastvoc = vocabularyList.VOICE_228
-            }else if(229==readData[0]){
-                lastvoc = vocabularyList.VOICE_229
-            }
-            control.raiseEvent(asrEventId, lastvoc);
-            basic.pause(100);
+            while (true) {
+                const readData = serial.readBuffer(1).toArray(NumberFormat.UInt8BE);
+                if (225==readData[0]) {
+                    lastvoc = vocabularyList.VOICE_225
+                }else if(226==readData[0]){
+                    lastvoc = vocabularyList.VOICE_226
+                }else if(227==readData[0]){
+                    lastvoc = vocabularyList.VOICE_227
+                }else if(228==readData[0]){
+                    lastvoc = vocabularyList.VOICE_228
+                }else if(229==readData[0]){
+                    lastvoc = vocabularyList.VOICE_229
+                }
+                control.raiseEvent(asrEventId, lastvoc);
+                basic.pause(100);
             }
         })
 
