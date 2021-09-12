@@ -62,7 +62,7 @@ namespace mASR{
     //% block="asr_logic %vocabulary"
     //% vocabulary.fieldEditor="gridpicker" vocabulary.fieldOptions.columns=3
     //% blockId = asr_logic
-    export function delimiters(vocabulary: vocabularyList): boolean {
+    export function asr_logic(vocabulary: vocabularyList): boolean {
         const readData = serial.readBuffer(1).toArray(NumberFormat.UInt8BE);
 
     
