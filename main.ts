@@ -59,7 +59,7 @@ namespace mASR{
 
     }
 
-    //% block="ASR sensor IIC port hear %vocabulary"
+    //% block="asr_logic %vocabulary"
     //% vocabulary.fieldEditor="gridpicker" vocabulary.fieldOptions.columns=3
     //% blockId = asr_logic
     export function delimiters(vocabulary: vocabularyList): boolean {
