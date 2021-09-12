@@ -60,8 +60,8 @@ namespace mASR{
     }
 
     //% block="ASR sensor IIC port hear %vocabulary"
-    //% result.fieldEditor="gridpicker" vocabulary.fieldOptions.columns=3
-    //% blockId = ASR
+    //% vocabulary.fieldEditor="gridpicker" vocabulary.fieldOptions.columns=3
+    //% blockId = asr_logic
     export function delimiters(vocabulary: vocabularyList): boolean {
         const readData = serial.readBuffer(1).toArray(NumberFormat.UInt8BE);
 
